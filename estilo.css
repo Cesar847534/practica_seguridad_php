@@ -97,3 +97,51 @@ form + p {
     border: 4px solid white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+
+/* Mejoras visuales del proyecto */
+
+/* Animación de entrada */
+form {
+    animation: aparecer 0.7s ease;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #1746a2;
+    transform: scale(1.03);
+}
+
+/* Bordes de los campos */
+input {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Animación */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adaptación para celulares */
+@media (max-width: 480px) {
+    form {
+        width: 85%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
