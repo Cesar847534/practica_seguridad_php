@@ -11,8 +11,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = trim($_POST['usuario']);
     $password = $_POST['password'];
 
-    // Buscar si el usuario existe
-    if (isset($_SESSION['usuarios'][$usuario])) {
+// Validar que los campos no estén vacíos
+if ($usuario == "" || $password == "") {
+
+    $mensaje = "Debes completar todos los campos.";
+
+}
+// Buscar si el usuario existe
+elseif (isset($_SESSION['usuarios'][$usuario])) {
+
+    // Recuperar el hash de la contraseña
+    $hash = $_SESSION['usuarios'][$usuario]['password'];
+
+    // Verificar la contraseña
+    if (password_verify($password, $hash)) {
+
+        $nombre = $_SESSION['usuarios'][$usuario]['nombre'];
+
+        $mensaje = "Acceso autorizado. ¡Bienvenido, " .
+                   htmlspecialchars($nombre) . "!";
+
+    } else {
+
+        $mensaje = "Acceso rechazado. Contraseña incorrecta.";
+
+    }
+
+} else {
+
+    $mensaje = "Acceso rechazado. El usuario no existe.";
+
+}
 
         // Recuperar el hash de la contraseña
         $hash = $_SESSION['usuarios'][$usuario]['password'];
@@ -30,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $mensaje = "Acceso rechazado. El usuario no existe.";
     }
-}
 ?>
 
 <!DOCTYPE html>
