@@ -1,0 +1,14 @@
+
+# Configuracion personal de Visual Studio Code
+.vscode/
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Archivos del sistema Windows
+Thumbs.db
+.DS_Store
+
+# Archivos temporales de respaldo
+*.bak
