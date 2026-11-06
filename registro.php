@@ -21,6 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($nombre == "" || $usuario == "" || $password == "" || $confirmar == "") {
         $mensaje = "Todos los campos son obligatorios.";
     }
+    // Validar que el usuario tenga al menos 4 caracteres
+    elseif (strlen($usuario) < 4) {
+        $mensaje = "El usuario debe tener al menos 4 caracteres.";
+    }
+
     // Validar que la contraseña tenga al menos 6 caracteres
     elseif (strlen($password) < 6) {
         $mensaje = "La contraseña debe tener mínimo 6 caracteres.";
