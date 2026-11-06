@@ -1,7 +1,8 @@
 <?php
+// Iniciar la sesión para recuperar los usuarios registrados
 session_start();
 
-// Variable para mostrar mensajes
+// Variable para mostrar mensajeel resultado del inicio de sesion
 $mensaje = "";
 
 // Comprobar si se envió el formulario

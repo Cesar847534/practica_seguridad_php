@@ -1,11 +1,13 @@
 <?php
+// Iniciar la sesión para conservar los usuarios registrados
 session_start();
 
-// Crear el arreglo de usuarios si todavía no existe
+// Crear el arreglo donde se guardarán los usuarios
 if (!isset($_SESSION['usuarios'])) {
     $_SESSION['usuarios'] = [];
 }
 
+// Variable que mostrará los mensajes al usuario
 $mensaje = "";
 
 // Comprobar si se envió el formulario
